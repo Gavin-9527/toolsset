@@ -8,12 +8,6 @@
   ],
   "routes": [
     { "src": "/(.*)", "dest": "api/app.py" }
-  ],
-  "static": {
-    "include": [
-      "api/static/css/**/*",
-      "api/static/js/**/*",
-      "api/templates/**/*"
-    ]
-  }
+  ]
+
 }
