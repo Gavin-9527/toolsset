@@ -5,11 +5,11 @@
   "routes": [
       {
           "src": "/static/(.*)",
-          "dest": "static/$1"
+          "dest": "/api/static/$1"
       },
       {
           "src": "/templates/(.*)",
-          "dest": "templates/$1"
+          "dest": "/api/templates/$1"
       },
       {
           "src": "/(.*)",
