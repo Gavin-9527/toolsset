@@ -1,19 +1,15 @@
 {
-  "env": {
-      "FLASK_ENV": "production"
-  },
+  "version": 2,
+  "builds": [
+    {
+      "src": "./api/app.py",
+      "use": "@vercel/python"
+    }
+  ],
   "routes": [
-      {
-          "src": "/static/(.*)",
-          "dest": "/api/static/$1"
-      },
-      {
-          "src": "/templates/(.*)",
-          "dest": "/api/templates/$1"
-      },
-      {
-          "src": "/(.*)",
-          "dest": "/api/index"
-      }
+    {
+      "src": "/api/(.*)",
+      "dest": "/api"
+    }
   ]
 }
