@@ -2,9 +2,18 @@ import atexit
 import shutil
 from flask import Flask, render_template, request, send_file, abort
 import os
-from pdf_to_word_converter import convert_pdf_to_word
-import threading
 
+import threading
+from pdf2docx import Converter
+
+def convert_pdf_to_word(pdf_path):
+    word_path = pdf_path.replace('.pdf', '.docx')
+
+    cv = Converter(pdf_path)
+    cv.convert(word_path, start=0, end=None)
+    cv.close()
+
+    return word_path
 app = Flask(__name__)
 app.config['UPLOAD_FOLDER'] = 'uploads'
 if not os.path.exists(app.config['UPLOAD_FOLDER']):
